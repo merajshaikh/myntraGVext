@@ -1,6 +1,6 @@
 (() => {
     const text = document.body.innerText;
-    const regex = /\b(\d{16})\D+?(\d{6})\b/g;
+    const regex = /\D+?(\d{16})[\s\S]*?(\d{6})\b/g;
   
     let match;
     const results = [];
