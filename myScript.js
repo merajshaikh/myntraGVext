@@ -24,7 +24,7 @@ chrome.storage.local.get('codes', async (result) => {
     // Balance amount selector
     const BALANCE_SELECTOR = '.balance-amount';
 
-    const DELAY_MS = 6000; // 6 seconds delay between each iteration
+    const DELAY_MS = 10000; // 10 seconds delay between each iteration
 
     // Helper function to create a delay
     const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
