@@ -24,7 +24,8 @@ chrome.storage.local.get('codes', async (result) => {
     // Balance amount selector
     const BALANCE_SELECTOR = '.balance-amount';
 
-    const DELAY_MS = 10000; // 10 seconds delay between each iteration
+    // Generate random delay between 2-5 seconds (2000-5000ms)
+    const getRandomDelay = () => Math.floor(Math.random() * (5000 - 2000 + 1)) + 2000;
 
     // Helper function to create a delay
     const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -138,9 +139,10 @@ chrome.storage.local.get('codes', async (result) => {
                 }
             }
 
-            // Wait for the specified delay before the next iteration
-            console.log(`Waiting for ${DELAY_MS / 1000} seconds...`);
-            await sleep(DELAY_MS);
+            // Wait for a random delay before the next iteration
+            const currentDelay = getRandomDelay();
+            console.log(`Waiting for ${currentDelay / 1000} seconds...`);
+            await sleep(currentDelay);
         } catch (error) {
             console.error(
                 `An unexpected error occurred while processing "${gc}":`,
